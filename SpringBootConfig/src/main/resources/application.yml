@@ -1,0 +1,24 @@
+server:
+  port: 6002
+spring:
+  application:
+    name: springbootConfig
+  profiles:
+    active: subversion
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ygf2018/project/tree/master/config
+          username: 782275563@qq.com
+          password: 975392628ygfZXC
+          default-label:
+ 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5000/eureka/
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    lease-expiration-duration-in-seconds: 30
